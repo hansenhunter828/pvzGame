@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace pvzGame
 {
@@ -24,6 +25,7 @@ namespace pvzGame
         int zomSize = 20;
         int SpawnTimer = 20;
         int damage = 30;
+        SoundPlayer gameStart = new SoundPlayer(Properties.Resources.gameStart);
 
         public GameOverScreen()
         {
@@ -32,6 +34,7 @@ namespace pvzGame
 
         private void playAgainButton_Click(object sender, EventArgs e)
         {
+            gameStart.Play();
             Form f = this.FindForm();
             f.Controls.Remove(this);
 

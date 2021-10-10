@@ -94,6 +94,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -107,6 +108,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\445983__breviceps__zombie-gargles.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\146730__leszek-szary__shoot.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\140382__dwoboyle__coins-01.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\382310__myfox14__game-over-arcade %281%29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\497713__miksmusic__punch-grunt-1.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\368691__fartbiscuit1700__8-bit-arcade-video-game-start-sound-effect-gun-reload-and-jump.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\525147__williamornelas__coins-selling-sound.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

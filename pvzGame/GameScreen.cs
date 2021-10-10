@@ -38,6 +38,12 @@ namespace pvzGame
         SolidBrush brushColour = new SolidBrush(Color.White);
         SolidBrush zomBrush = new SolidBrush(Color.Green);
         Random randGen = new Random();
+        SoundPlayer shoot = new SoundPlayer(Properties.Resources.shoot);
+        SoundPlayer zombieDie = new SoundPlayer(Properties.Resources.zombieDie);
+        SoundPlayer sunFlowerRegen = new SoundPlayer(Properties.Resources.sunFlowerSound);
+        SoundPlayer gameOver = new SoundPlayer(Properties.Resources.gameOver);
+        SoundPlayer hurt = new SoundPlayer(Properties.Resources.hurtSound);
+        SoundPlayer buyUpgrade = new SoundPlayer(Properties.Resources.buyUpgrade);
 
 
         public GameScreen()
@@ -48,14 +54,16 @@ namespace pvzGame
         private void plot1_Click(object sender, EventArgs e)
         {
             sunFlowers += cashPS;
+            sunFlowerRegen.Play();
         }
 
         private void plot2_Click(object sender, EventArgs e)
         {
-            if(sunFlowers > 0)
+            if (sunFlowers > 0)
             {
                 Projectile pr = new Projectile(plot2X, plot2Y, 10);
                 projectiles.Add(pr);
+                shoot.Play();
                 sunFlowers--;
             }
         }
@@ -63,6 +71,7 @@ namespace pvzGame
         private void plot3_Click(object sender, EventArgs e)
         {
             sunFlowers += cashPS;
+            sunFlowerRegen.Play();
         }
 
         private void plot4_Click(object sender, EventArgs e)
@@ -71,6 +80,7 @@ namespace pvzGame
             {
                 Projectile pr = new Projectile(plot4X, plot4Y, 10);
                 projectiles.Add(pr);
+                shoot.Play();
                 sunFlowers--;
             }
         }
@@ -105,6 +115,7 @@ namespace pvzGame
                         {
                             zombies.Remove(z);
                             projectiles.Remove(p);
+                            zombieDie.Play();
                             return;
                         }
                         else
@@ -145,6 +156,7 @@ namespace pvzGame
                 {
                     zombies.Remove(z);
                     baseHealth -= z.zombieDamage;
+                    hurt.Play();
                     return;
                 }
             }
@@ -178,6 +190,7 @@ namespace pvzGame
             //check if game over
             if (baseHealth <= 0)
             {
+                gameOver.Play();
                 GameOver();
             }
             //check if time for new round
@@ -193,6 +206,7 @@ namespace pvzGame
             //Upgrade currency
             if (sunFlowers >= cashUpCost)
             {
+                buyUpgrade.Play();
                 cashPS = cashPS + cashUp;
                 cashUpCost += 2;
                 sunFlowers -= cashUpCost;
@@ -204,6 +218,7 @@ namespace pvzGame
             //Upgrade damga
             if (sunFlowers >= damUpCost)
             {
+                buyUpgrade.Play();
                 damage += 2;
                 damUpCost += 2;
                 sunFlowers -= damUpCost;
